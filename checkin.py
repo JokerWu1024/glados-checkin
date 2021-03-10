@@ -2,7 +2,7 @@ import requests,json,os
 
 # server酱开关，填off不开启(默认)，填on同时开启cookie失效通知和签到成功通知
 sever = os.environ["SERVE"]
-# 填写server酱sckey,不开启server酱则不用填
+# 填写server酱sckey,不开启server酱则不用填https://github.com/JokerWu1024/glados-checkin/blob/master/checkin.py
 sckey = os.environ["SCKEY"]
 #'SCU89402Tf98b7f01ca3394*********************************'
 # 填入glados账号对应cookie
@@ -32,9 +32,9 @@ def start():
         time = time.split('.')[0]
         #print(time)
         if sever == 'on':
-            requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
+            requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+mess+'，you have '+time+' days left')
     else:
-        requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+        requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title=cookie过期')
 
 def main_handler(event, context):
   return start()
