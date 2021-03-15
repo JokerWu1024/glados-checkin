@@ -31,7 +31,7 @@ def start():
         time = time.split('.')[0]
         #print(time)
         if sever == 'on':
-            requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+mess+'，you have '+time+' days left')
+            requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+mess+', you have '+time+' days left')
     else:
         requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title=cookie过期')
 
